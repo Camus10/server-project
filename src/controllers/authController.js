@@ -8,10 +8,85 @@ const users = [
   { id: 2, username: 'user2', password: 'password2' },
 ];
 
+/**
+ * @swagger
+ * tags:
+ *   name: Authentication
+ *   description: Authentication endpoints
+ */
+
+/**
+ * @swagger
+ * /auth/register:
+ *   post:
+ *     summary: Register a new user
+ *     description: Endpoint to register a new user
+ *     consumes:
+ *       - application/json
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - in: body
+ *         name: user
+ *         description: User object
+ *         required: true
+ *         schema:
+ *           type: object
+ *           properties:
+ *             username:
+ *               type: string
+ *               example: user1
+ *             password:
+ *               type: string
+ *               example: password1
+ *     responses:
+ *       '200':
+ *         description: Successful registration
+ *         schema:
+ *           type: object
+ *           properties:
+ *             message:
+ *               type: string
+ *               example: User registered successfully
+ */
 const register = (req, res) => {
   // Implement user registration logic
 };
 
+/**
+ * @swagger
+ * /auth/Login:
+ *   post:
+ *     summary: Login a user
+ *     description: Endpoint to Login a user
+ *     consumes:
+ *       - application/json
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - in: body
+ *         name: user
+ *         description: User object
+ *         required: true
+ *         schema:
+ *           type: object
+ *           properties:
+ *             username:
+ *               type: string
+ *               example: user1
+ *             password:
+ *               type: string
+ *               example: password1
+ *     responses:
+ *       '200':
+ *         description: Successful login
+ *         schema:
+ *           type: object
+ *           properties:
+ *             message:
+ *               type: string
+ *               example: User login successfully
+ */
 const login = (req, res) => {
   const { username, password } = req.body;
 
