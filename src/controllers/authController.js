@@ -13,22 +13,23 @@ const register = (req, res) => {
 };
 
 const login = (req, res) => {
-    const { username, password } = req.body;
+  const { username, password } = req.body;
 
-    // Find user by username
-    const user = users.find((u) => u.username === username);
-  
-    // Check if user exists and password is correct
-    if(!user || user.password !== password){
-      return res.status(401).json({ message: 'Invalid credentials' });
-    }
-  
-    // Generate JWT token
-    const token = jwt.sign({ user: { id: user.id, username: user.username } }, config.secretKey, {
-      expiresIn: config.expiresIn,
-    });
-  
-    res.json({ token });
+  // Find user by username
+  const user = users.find((u) => u.username === username);
+
+  // Check if user exists and password is correct
+  if (!user || user.password !== password) {
+    return res.status(401).json({ message: 'Invalid credentials' });
+  }
+
+  // Generate a valid JWT token with expiration time set to 1 hour (3600 seconds)
+  const token = jwt.sign({ user: { id: user.id, username: user.username } }, config.secretKey, {
+    expiresIn: '1h',
+    algorithm: 'HS256', // Specify the algorithm
+  });
+
+  res.json({ token });
 };
 
 const profile = (req, res) => {
