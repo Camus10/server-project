@@ -1,0 +1,33 @@
+# Node.js
+node_modules/
+
+# Logs
+logs
+*.log
+
+# Dependency directories
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# dotenv environment file
+.env
+
+# Production build directory
+build/
+
+# Local development config
+config/local.json
+
+# macOS
+.DS_Store
+
+# Editor directories
+.vscode/
+.idea/
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
